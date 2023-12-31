@@ -1,0 +1,28 @@
+package com.webtable;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Webtable_Concept {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\kumar\\Downloads\\11Selenium\\Chromedriver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		
+		driver.get("https://www.techlistic.com/2017/02/automate-demo-web-table-with-selenium.html#google_vignette");
+		System.out.println("*************ALL DATA*****************");
+		List<WebElement> findelements = driver.findElements(By.xpath("(//table/tbody)[1]/tr/td"));
+		for (WebElement webElement : findelements) {
+			System.out.println(webElement.getText());
+			
+		}
+	}
+	
+
+}
